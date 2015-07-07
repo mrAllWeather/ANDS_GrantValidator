@@ -1,0 +1,7 @@
+PubID	ItemID	Title	Year	Handle	PURL
+84746	321118	Femtosecond transient absorption spectroscopy of the medicinal agent curcumin in diamide linked ?-cyclodextrin dimers	2014	http://hdl.handle.net/2440/87154	http://purl.org/au-research/grants/arc/20774028
+84746	321118	Femtosecond transient absorption spectroscopy of the medicinal agent curcumin in diamide linked ?-cyclodextrin dimers	2014	http://hdl.handle.net/2440/87154	http://purl.org/au-research/grants/arc/20774030
+41156	52504	Molecular systematics of social skinks: Phylogeny and taxonomy of the Egernia group (Reptilia: Scincidae)	2008	http://hdl.handle.net/2440/52325	http://purl.org/au-research/grants/arc/A19602789
+41156	52504	Molecular systematics of social skinks: Phylogeny and taxonomy of the Egernia group (Reptilia: Scincidae)	2008	http://hdl.handle.net/2440/52325	http://purl.org/au-research/grants/arc/A19804305
+15509	423759	Sequence variants in three loci influence monocyte counts and erythrocyte volume	2009	http://hdl.handle.net/2440/88484	http://purl.org/au-research/grants/arc/A7960034
+15509	423759	Sequence variants in three loci influence monocyte counts and erythrocyte volume	2009	http://hdl.handle.net/2440/88484	http://purl.org/au-research/grants/arc/A79801419

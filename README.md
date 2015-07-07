@@ -1,6 +1,8 @@
 # ANDS_GrantValidator
 Check ANDS grant IDs against the [ANDS grants API](http://developers.ands.org.au/services/getgrants/) to ensure they are valid.
-Singular lookups should probably be performed via the [ANDS grants widget](http://developers.ands.org.au/widgets/grant_widget/)
+Singular lookups should probably be performed via the [ANDS grants widget](http://developers.ands.org.au/widgets/grant_widget/).
+
+Please note you will need an ANDS API key to use this script. You may sign up for one at [API Key Registration](http://researchdata.ands.org.au/registry/services/register/).
 
 #### Language:
 Python 3.4

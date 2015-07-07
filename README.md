@@ -14,10 +14,20 @@ python grant_validator.py example_input.txt
 ### Output:
 Will output a tab-delimited txt file with a new column 'resolved', possible values TRUE, FALSE, Too Many Results.
 
-### Problems:
-This code is really rough; currently testing is performed only by checking the number of responses. 0: False, 1: True, (!0 or !1): Too may results.
+### Process:
+The code primarily checks numFound to determine result, then some additional checks are performed to increase accuracy of results.
 
-False positives may occur when a partial ID is provided and there is only 1 grant which shares the same starting number.
+NumFound = 0: 
+* False (Occasionally IDs may not be on ANDS yet)
 
-'Too many results' will also trigger on any negative result but as I cannot find a reference to such within the documentation so, should be fine?
+NumFound = 1:
+* Search ID == Response ID:
+  * True
+* Search ID != Response ID:
+  * "False: Partial String!" (partial match of ID)
 
+NumFound > 1:
+* "Too many Results"
+
+NumFound is Other:
+* "ERROR: {Other} invalid input"

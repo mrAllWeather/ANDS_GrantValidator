@@ -3,14 +3,14 @@
 	Contact: Ben.Weatherall@adelaide.edu.au
 	Python 3.4
 	Description:
-		Will take a table file (.txt/.csv - Tab delimited) with at least one column named PURL who's content is a 
+		Will take a csv file (Tab delimited) with at least one column named PURL who's content is a 
 	research grant purl url (http://purl.org/au-research/grants/arc/20774028 for example). 
 	Makes use of the ANDS API to determine if a grant id is valid.
 	Returns a Tab delimited csv file with an additional column 'resolves' the content of this field 
 	will be either true or false.
 	As this is only a quick script, the columns on the output won't be ordered
 """
-import urllib.request, json, difflib, csv, sys, pickle
+import urllib.request, json, difflib, csv, sys, pickle, math
 
 API_KEY="" # Enter Your API Key
 
@@ -28,6 +28,9 @@ def importCSV():
 		
 def request(key):
 	
+	if(key == ""):
+		return "Error: No Key"
+		
 	request_url = "http://researchdata.ands.org.au/registry/services/{}/getGrants?id={}".format(API_KEY, key)
 
 	request = urllib.request.Request(request_url)

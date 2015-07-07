@@ -3,7 +3,7 @@
 	Contact: Ben.Weatherall@adelaide.edu.au
 	Python 3.4
 	Description:
-		Will take a csv file (Tab delimited) with at least one column named PURL who's content is a 
+		Will take a table file (.txt/.csv - Tab delimited) with at least one column named PURL who's content is a 
 	research grant purl url (http://purl.org/au-research/grants/arc/20774028 for example). 
 	Makes use of the ANDS API to determine if a grant id is valid.
 	Returns a Tab delimited csv file with an additional column 'resolves' the content of this field 
@@ -38,12 +38,18 @@ def request(key):
 
 	result = json.loads(string)['message']
 
-	if(result['numFound'] == 0):
+	if(result['numFound'] > 1):
+		return "Too many Results"
+	elif(result['numFound'] == 0):
 		return False
 	elif (result['numFound'] == 1):
-		return True
+		if(result['recordData'][0]['identifiers'][1] == key):
+			return True
+		else:
+			return str(False) + ": Partial String!"
 	else:
-		return "Too many Results"
+		return "ERROR: {} invalid input".format(result['numFound'])
+		
 		
 
 	

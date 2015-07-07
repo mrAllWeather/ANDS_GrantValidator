@@ -42,20 +42,20 @@ def request(key):
 	result = json.loads(string)['message']
 
 	if(result['numFound'] > 1):
-		return "Too many Results"
+		key_match = "Too many Results {}: ".format(key.split('/')[-1])
+		for match in result['recordData']:
+			key_match += match['identifiers'][1] + ', '
+		return key_match
 	elif(result['numFound'] == 0):
 		return False
 	elif (result['numFound'] == 1):
-		if(result['recordData'][0]['identifiers'][1] == key):
+		if(result['recordData'][0]['identifiers'][1] == key.split('/')[-1]):
 			return True
 		else:
-			return str(False) + ": Partial String!"
+			return "Partial String {}: {}".format(key.split('/')[-1], result['recordData'][0]['identifiers'][1])
 	else:
 		return "ERROR: {} invalid input".format(result['numFound'])
 		
-		
-
-	
 def main():
 	myArray = importCSV()
 	validatedIDs = {}
@@ -69,7 +69,8 @@ def main():
 	avoidedDupes = 0
 
 	for count, row in enumerate(myArray):
-		row['grant_id'] = row['PURL'].split('/')[-1]
+		row['grant_id'] = row['PURL'].split('/')[-2] + '/' + row['PURL'].split('/')[-1]
+
 		print("{}/{}: {}".format(count, len(myArray), row['grant_id']))
 		if(row['grant_id'] in validatedIDs):
 			row['resolves'] = validatedIDs[row['grant_id']]
